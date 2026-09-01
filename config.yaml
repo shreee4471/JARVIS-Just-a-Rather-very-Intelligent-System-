@@ -1,0 +1,47 @@
+jarvis:
+  name: "Jarvis"
+
+wake_word:
+  model: "hey_jarvis_v0.1"
+  threshold: 0.5
+  enabled: true
+
+llm:
+  provider: "ollama"
+  model: "llama3.1:8b"
+  base_url: "http://localhost:11434"
+  temperature: 0.6
+  context_window: 8
+
+stt:
+  engine: "faster-whisper"
+  model_size: "medium.en"     # tiny/base/small/medium/large-v3
+  device: "cuda"              # set to "cpu" if no GPU
+  compute_type: "float16"     # use "int8" on CPU
+
+tts:
+  engine: "piper"
+  voice: "en_US-lessac-high"
+  speed: 1.0
+
+clap_detection:
+  enabled: true
+  amplitude_threshold: 10000
+  quiet_threshold: 6000
+  min_gap_seconds: 0.5
+  debug: false
+
+music:
+  folder: "C:\\Users\\shris\\Music"
+
+audio:
+  sample_rate: 16000
+  silence_threshold: 500      # mic sensitivity for end-of-speech detection
+  silence_duration: 1.0       # seconds of silence before STT cuts off
+
+skills_dir: "skills"
+log_level: "INFO"
+
+world_monitor:
+  base_url: "http://localhost:3000"   # URL where World Monitor is running
+  enabled: true                        # set to false to disable all WM skills
